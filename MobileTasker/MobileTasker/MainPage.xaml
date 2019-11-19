@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MobileTasker;assembly=MobileTasker"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             mc:Ignorable="d"
+             x:Class="MobileTasker.MainPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="TO DO" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="12" Padding="0,20,0,0">
+                <input:CheckBox Text="Option 0" Color="Chartreuse" TextColor="Coral" />
+                <input:CheckBox Text="Option 1" IsChecked="True" Type="Box"/>
+                <input:CheckBox Text="Option 2" />
+                <input:CheckBox Text="Option 3" />
+                <input:CheckBox Text="Option 4" />
+                <input:CheckBox Text="Option 5" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>
