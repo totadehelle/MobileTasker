@@ -11,20 +11,44 @@
              x:Class="MobileTasker.MainPage">
 
     <NavigationPage.TitleView>
-        <Label Text="TO DO" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Label Text="TO DO" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
+            <Button Text="Delete completed" FontSize="14" Padding="20,0,20,0" 
+                    Command ="{Binding DeleteCommand}"></Button>
+        </StackLayout>
+        
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Spacing="12" Padding="0,20,0,0">
-                <input:CheckBox Text="Option 0" Color="Chartreuse" TextColor="Coral" />
-                <input:CheckBox Text="Option 1" IsChecked="True" Type="Box"/>
-                <input:CheckBox Text="Option 2" />
-                <input:CheckBox Text="Option 3" />
-                <input:CheckBox Text="Option 4" />
-                <input:CheckBox Text="Option 5" />
+
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="NewTaskText" WidthRequest="300" Placeholder="Add new task here"
+                       Text="{Binding NewTaskText, Mode=TwoWay}"></Entry>
+                <Button Text="+" FontSize="18" Padding="20,0,20,0" Command ="{Binding AddCommand}"
+                        WidthRequest="50">
+                </Button>
             </StackLayout>
-        </ScrollView>
+                <ListView x:Name="TaskList" ItemsSource="{Binding Tasks}" 
+                          ItemSelected="taskList_ItemSelected"
+                          Margin="20,0,20,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <input:CheckBox Text="{Binding Text}" 
+                                                        IsChecked="{Binding IsCompleted}" 
+                                                        Type="Check" TextFontSize="14"
+                                                        CheckChangedCommand="{Binding ChangeStatusCommand}"/>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </StackLayout>
+        
     </ContentPage.Content>
 
 </ContentPage>

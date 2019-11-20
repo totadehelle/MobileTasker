@@ -6,12 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.4" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
     <PackageReference Include="Xamarin.Forms.InputKit" Version="3.0.15" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\MobileTasker.Core\MobileTasker.Core.csproj" />
+    <ProjectReference Include="..\..\MobileTasker.DataAccess\MobileTasker.DataAccess.csproj" />
+    <ProjectReference Include="..\..\MobileTasker.Entities\MobileTasker.Entities.csproj" />
     <ProjectReference Include="..\..\MobileTasker.Presenters\MobileTasker.Presenters.csproj" />
   </ItemGroup>
 </Project>

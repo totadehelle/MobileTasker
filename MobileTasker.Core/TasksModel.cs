@@ -1,4 +1,5 @@
-﻿using MobileTasker.Entities;
+﻿using System.Collections.Generic;
+using MobileTasker.Entities;
 using System.Threading.Tasks;
 
 namespace MobileTasker.Core
@@ -6,10 +7,6 @@ namespace MobileTasker.Core
     public class TasksModel
     {
         private readonly IRepository _repository;
-        public TasksModel(IRepository repository)
-        {
-            _repository = repository;
-        }
 
         public async Task CreateTask(string text)
         {
@@ -28,10 +25,19 @@ namespace MobileTasker.Core
             return await _repository.Update(task.Id, task);
         }
 
+        public async Task DeleteCompleted()
+        {
+            await _repository.DeleteAllCompleted();
+        }
 
         public async Task<bool> EditTask(TaskItem task)
         {
             return await _repository.Update(task.Id, task);
+        }
+
+        public async Task<IList<TaskItem>> GetAllTasks()
+        {
+            return await _repository.GetAll();
         }
     }
 }

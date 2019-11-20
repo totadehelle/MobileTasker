@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MobileTasker.Core\MobileTasker.Core.csproj" />
+    <ProjectReference Include="..\MobileTasker.Entities\MobileTasker.Entities.csproj" />
   </ItemGroup>
 
 </Project>

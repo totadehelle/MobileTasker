@@ -27,7 +27,7 @@ namespace MobileTasker.DataAccess
             return await _context.Tasks.FindAsync(id);
         }
 
-        public async Task<IEnumerable<TaskItem>> GetAll()
+        public async Task<IList<TaskItem>> GetAll()
         {
             return await _context.Tasks.ToListAsync();
         }

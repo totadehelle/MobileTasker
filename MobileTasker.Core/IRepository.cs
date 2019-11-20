@@ -8,7 +8,7 @@ namespace MobileTasker.Core
     {
         Task Add(TaskItem task);
         Task<TaskItem> Get(int id);
-        Task<IEnumerable<TaskItem>> GetAll();
+        Task<IList<TaskItem>> GetAll();
         Task<bool> Update(int id, TaskItem task);
         Task<bool> Delete(int id);
         Task DeleteAllCompleted();
