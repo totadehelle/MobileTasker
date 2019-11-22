@@ -6,49 +6,54 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:MobileTasker;assembly=MobileTasker"
-             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              mc:Ignorable="d"
              x:Class="MobileTasker.MainPage">
 
     <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="DarkSlateBlue">
             <Label Text="TO DO" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
             <Button Text="Delete completed" FontSize="14" Padding="20,0,20,0" 
-                    Command ="{Binding DeleteCommand}"></Button>
-        </StackLayout>
-        
+                    Command ="{Binding DeleteCommand}"
+                    BackgroundColor="DarkSlateBlue" TextColor="White"></Button>
+        </StackLayout>        
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-
-        <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Entry x:Name="NewTaskText" WidthRequest="300" Placeholder="Add new task here"
+        <StackLayout>          
+            <StackLayout Orientation="Horizontal" Padding="20,0,0,0">
+                <Entry x:Name="NewTaskText" WidthRequest="300" HeightRequest="50" Placeholder="Add new task here"
                        Text="{Binding NewTaskText, Mode=TwoWay}"></Entry>
-                <Button Text="+" FontSize="18" Padding="20,0,20,0" Command ="{Binding AddCommand}"
-                        WidthRequest="50">
+                <Button Text="+" FontSize="20" Padding="20,0,20,0" Command ="{Binding AddCommand}"
+                        BackgroundColor="DarkSlateBlue" TextColor="White"
+                        WidthRequest="50" HeightRequest="50">
                 </Button>
             </StackLayout>
-                <ListView x:Name="TaskList" ItemsSource="{Binding Tasks}" 
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding TestId}"></Label>
+                <Label Text="{Binding TestStatus}"></Label>
+            </StackLayout>
+            <ListView x:Name="TaskList" ItemsSource="{Binding Tasks}" 
                           ItemSelected="taskList_ItemSelected"
                           Margin="20,0,20,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <StackLayout>
-                                        <input:CheckBox Text="{Binding Text}" 
-                                                        IsChecked="{Binding IsCompleted}" 
-                                                        Type="Check" TextFontSize="14"
-                                                        CheckChangedCommand="{Binding ChangeStatusCommand}"/>
-                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    <CheckBox 
+                                            ClassId="{Binding Id}"
+                                                    CheckedChanged="CheckBox_CheckedChanged" 
+                                                    IsChecked="{Binding IsCompleted}"
+                                                    Color="DarkSlateBlue"/>
+                                    <Label Text="{Binding Text}" FontSize="20" 
+                                               VerticalOptions="Center"></Label>
+                                    </StackLayout>                                      
                                 </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+            </ListView>
         </StackLayout>
-        
     </ContentPage.Content>
 
 </ContentPage>

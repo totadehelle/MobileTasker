@@ -23,8 +23,9 @@ namespace MobileTasker.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            //need this line because of this bug: https://github.com/aspnet/EntityFrameworkCore/issues/10361
+            SQLitePCL.Batteries_V2.Init();
             LoadApplication(new App());
-            Plugin.InputKit.Platforms.iOS.Config.Init();
             return base.FinishedLaunching(app, options);
         }
     }

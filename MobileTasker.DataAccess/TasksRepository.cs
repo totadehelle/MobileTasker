@@ -10,16 +10,17 @@ namespace MobileTasker.DataAccess
     public class TasksRepository : IRepository
     {
         private readonly AppContext _context;
-
-        public TasksRepository(AppContext context)
+        public TasksRepository(string path)
         {
-            _context = context;
+            _context = new AppContext(path);
+           
         }
 
-        public async Task Add(TaskItem task)
+        public async Task<TaskItem> Add(TaskItem task)
         {
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
+            return task;
         }
 
         public async Task<TaskItem> Get(int id)

@@ -34,9 +34,14 @@ namespace MobileTasker
             ((ListView)sender).SelectedItem = null;
         }
 
-        private void addButton_OnClicked(object sender, EventArgs e)
+        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            Presenter.Tasks.Add(new TaskItem() { Text = "third", IsCompleted = false });
+            Xamarin.Forms.CheckBox ch = (Xamarin.Forms.CheckBox)sender;
+            var id = ch.ClassId;
+            //CheckedChanged event is fired also when the checkbox is removed, and ClassId is null then, so we need this null-check
+            if (id == null)
+                return;
+            Presenter.ChangeTaskStatus(id);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace MobileTasker.Core
 {
     public interface IRepository
     {
-        Task Add(TaskItem task);
+        Task<TaskItem> Add(TaskItem task);
         Task<TaskItem> Get(int id);
         Task<IList<TaskItem>> GetAll();
         Task<bool> Update(int id, TaskItem task);
