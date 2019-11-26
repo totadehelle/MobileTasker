@@ -64,7 +64,7 @@ namespace MobileTasker.Presenters
         public async void ChangeTaskStatus(string textId)
         {
             var isConverted = int.TryParse(textId, out int id);
-            var task = Tasks.Where(t => t.Id == id).First();
+            var task = Tasks.First(t => t.Id == id);
             var updated = await _model.EditTask(task);
         }
 

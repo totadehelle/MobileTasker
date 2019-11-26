@@ -7,15 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTasker.Android", "Mob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTasker.iOS", "MobileTasker\MobileTasker.iOS\MobileTasker.iOS.csproj", "{D6726BEA-9CCE-483A-8DFC-22A313A14085}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTasker", "MobileTasker\MobileTasker\MobileTasker.csproj", "{B273C759-86D3-4075-AA1B-0FC22C108C0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileTasker", "MobileTasker\MobileTasker\MobileTasker.csproj", "{B273C759-86D3-4075-AA1B-0FC22C108C0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTasker.Core", "MobileTasker.Core\MobileTasker.Core.csproj", "{1F1E0A6E-6093-4AEA-B9EE-86AC7F7DCEB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileTasker.Core", "MobileTasker.Core\MobileTasker.Core.csproj", "{1F1E0A6E-6093-4AEA-B9EE-86AC7F7DCEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTasker.DataAccess", "MobileTasker.DataAccess\MobileTasker.DataAccess.csproj", "{5FA60E6D-D0E8-4AAB-B24F-42300D129F90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileTasker.DataAccess", "MobileTasker.DataAccess\MobileTasker.DataAccess.csproj", "{5FA60E6D-D0E8-4AAB-B24F-42300D129F90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTasker.Presenters", "MobileTasker.Presenters\MobileTasker.Presenters.csproj", "{ED26F797-F6FC-4A20-AF2F-6DA7B01259A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileTasker.Presenters", "MobileTasker.Presenters\MobileTasker.Presenters.csproj", "{ED26F797-F6FC-4A20-AF2F-6DA7B01259A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileTasker.Entities", "MobileTasker.Entities\MobileTasker.Entities.csproj", "{CCDD3728-23B6-4759-AAF9-DBA8CAD2330D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileTasker.Entities", "MobileTasker.Entities\MobileTasker.Entities.csproj", "{CCDD3728-23B6-4759-AAF9-DBA8CAD2330D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

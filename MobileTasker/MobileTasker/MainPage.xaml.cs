@@ -36,7 +36,7 @@ namespace MobileTasker
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            Xamarin.Forms.CheckBox ch = (Xamarin.Forms.CheckBox)sender;
+            var ch = (Xamarin.Forms.CheckBox)sender;
             var id = ch.ClassId;
             //CheckedChanged event is fired also when the checkbox is removed, and ClassId is null then, so we need this null-check
             if (id == null)

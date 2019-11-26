@@ -9,9 +9,15 @@
              mc:Ignorable="d"
              x:Class="MobileTasker.MainPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToTextDecorationConverter x:Key="decorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="DarkSlateBlue">
-            <Label Text="TO DO" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="24" TextColor="White"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="TO DO" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" 
+                   FontSize="24" TextColor="White"/>
             <Button Text="Delete completed" FontSize="14" Padding="20,0,20,0" 
                     Command ="{Binding DeleteCommand}"
                     BackgroundColor="DarkSlateBlue" TextColor="White"></Button>
@@ -19,35 +25,39 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <StackLayout>          
-            <StackLayout Orientation="Horizontal" Padding="20,0,0,0">
-                <Entry x:Name="NewTaskText" WidthRequest="300" HeightRequest="50" Placeholder="Add new task here"
-                       Text="{Binding NewTaskText, Mode=TwoWay}"></Entry>
-                <Button Text="+" FontSize="20" Padding="20,0,20,0" Command ="{Binding AddCommand}"
-                        BackgroundColor="DarkSlateBlue" TextColor="White"
-                        WidthRequest="50" HeightRequest="50">
-                </Button>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="{Binding TestId}"></Label>
-                <Label Text="{Binding TestStatus}"></Label>
-            </StackLayout>
+        <StackLayout Padding="0,10,0,0" HorizontalOptions="FillAndExpand">          
+            
+            <FlexLayout AlignItems="Start" Basis="1" Padding="10,0,10,0">
+                <Entry Placeholder="Add new task here" 
+                       Text="{Binding NewTaskText, Mode=TwoWay}"
+                       FlexLayout.AlignSelf="Stretch"
+                       FlexLayout.Grow="1"
+                       Margin="0,0,10,0" HeightRequest="48"
+                />
+                <ImageButton Command ="{Binding AddCommand}"
+                        BackgroundColor="DarkSlateBlue"
+                        HeightRequest="40" WidthRequest="40"
+                        Source="{local:ImageResource MobileTasker.add-plus-button.png}"
+                        />
+            </FlexLayout>
+
             <ListView x:Name="TaskList" ItemsSource="{Binding Tasks}" 
                           ItemSelected="taskList_ItemSelected"
-                          Margin="20,0,20,0">
+                          Margin="10,0,10,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                        <ViewCell x:Name="{Binding Id}">
                                 <ViewCell.View>
                                     <StackLayout Orientation="Horizontal">
                                     <CheckBox 
                                             ClassId="{Binding Id}"
                                                     CheckedChanged="CheckBox_CheckedChanged" 
-                                                    IsChecked="{Binding IsCompleted}"
-                                                    Color="DarkSlateBlue"/>
+                                                    IsChecked="{Binding IsCompleted, Mode=TwoWay}"
+                                                    Color="DarkSlateBlue" />
                                     <Label Text="{Binding Text}" FontSize="20" 
-                                               VerticalOptions="Center"></Label>
-                                    </StackLayout>                                      
+                                               VerticalOptions="Center" 
+                                               TextDecorations="{Binding IsCompleted, Converter={StaticResource decorConverter}}"/>
+                                </StackLayout>                                      
                                 </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
